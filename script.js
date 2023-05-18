@@ -10,3 +10,13 @@ function makeRows(rows, cols) {
 };
 
 makeRows(16, 16);
+
+let gridItems = document.getElementsByClassName("grid-item");
+
+let coloring = function () {
+    console.log(gridItems);
+};
+
+for (let i = 0; i < gridItems.length; i++) {
+    gridItems[i].addEventListener('mouseover', coloring, false);
+};
