@@ -6,7 +6,10 @@ function makeRows(rows, cols) {
         let cell = document.createElement("div");
         container.appendChild(cell).className = "grid-item";
     }
+    coloring();
+};
 
+function coloring() {
     let gridItems = document.getElementsByClassName("grid-item");
     let trigger = false;
 
@@ -30,7 +33,7 @@ function makeRows(rows, cols) {
     for (let i = 0; i < gridItems.length; i++) {
         gridItems[i].addEventListener("mousemove", coloring, false);
     };
-};
+}
 
 gridSize = 16;
 makeRows(gridSize, gridSize);
@@ -44,6 +47,29 @@ function rmvColor() {
 
 let color = random_rgba();
 
+function eraseColor() {
+    let gridItems = document.getElementsByClassName("grid-item");
+    let trigger = false;
+
+    this.addEventListener('mousedown', function () {
+        trigger = true;
+    });
+
+    this.addEventListener('mouseup', function () {
+        trigger = false;
+    });
+
+    let erase = function () {
+        if (trigger === true) {
+            this.style.backgroundColor = "white";
+        }
+    };
+
+    for (let i = 0; i < gridItems.length; i++) {
+        gridItems[i].addEventListener("mousemove", erase, false);
+    };
+}
+
 function random_rgba() {
     const o = Math.round, r = Math.random, s = 255;
     return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
@@ -54,10 +80,12 @@ let oneColor = false;
 function ChooseOneColor() {
     color = random_rgba();
     oneColor = true;
+    coloring();
 }
 
 function ChooseMultColor() {
     oneColor = false;
+    coloring();
 }
 
 function setGrid() {
