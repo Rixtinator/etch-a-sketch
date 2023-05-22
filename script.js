@@ -20,7 +20,7 @@ function makeRows(rows, cols) {
 
     let coloring = function () {
         if (trigger === true) {
-            this.style.backgroundColor = "black";
+            this.style.backgroundColor = color;
         }
     };
 
@@ -35,6 +35,13 @@ function rmvColor() {
         gridItems[i].style.backgroundColor = "white";
     };
 }
+
+function random_rgba() {
+    const o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
+}
+
+const color = random_rgba();
 
 gridSize = 16;
 makeRows(gridSize, gridSize);
