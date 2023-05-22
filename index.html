@@ -9,9 +9,11 @@
     <title>Etch a Sketch</title>
 </head>
 <body>
-    <button onclick="setGrid()">Change grid size</button>
-    <button id = "one_color" onclick="ChooseOneColor()">Switch to one color</button>
-    <button id = "multipe_color" onclick="ChooseMultColor()">Switch to multiple colors</button>
+    <div id = "button-container">
+        <button class="button-50" role="button" id = "grid_size" onclick="setGrid()">Change grid size</button>
+        <button class="button-50" role="button" id = "one_color" onclick="ChooseOneColor()">Switch (to one) color</button>
+        <button class="button-50" role="button" id = "multipe_color" onclick="ChooseMultColor()">Switch to multiple colors</button>
+    </div>   
     <div id="container"></div>
 </body>
 </html>
