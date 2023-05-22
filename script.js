@@ -49,7 +49,12 @@ function random_rgba() {
 let oneColor = false;
 
 function ChooseOneColor() {
+    color = random_rgba();
     oneColor = true;
+}
+
+function ChooseMultColor() {
+    oneColor = false;
 }
 
 gridSize = 16;
