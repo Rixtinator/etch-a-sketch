@@ -29,8 +29,15 @@ function makeRows(rows, cols) {
     };
 };
 
+function rmvColor() {
+    let gridItems = document.getElementsByClassName("grid-item");
+    for (let i = 0; i < gridItems.length; i++) {
+        gridItems[i].style.backgroundColor = "white";
+    };
+}
 
 gridSize = 16;
+makeRows(gridSize, gridSize);
 
 function setGrid() {
     gridSize = Number(window.prompt("How many pixels do you want?", "choose number between 1 and 100"));
@@ -40,10 +47,11 @@ function setGrid() {
 
     else {
         console.log(gridSize);
+        makeRows(gridSize, gridSize);
+        rmvColor();
     }
 };
 
-makeRows(gridSize, gridSize);
 
 
 
