@@ -19,7 +19,10 @@ function makeRows(rows, cols) {
     });
 
     let coloring = function () {
-        if (trigger === true) {
+        if (trigger === true && oneColor === false) {
+            this.style.backgroundColor = random_rgba();
+        }
+        if (trigger === true && oneColor === true) {
             this.style.backgroundColor = color;
         }
     };
@@ -36,12 +39,18 @@ function rmvColor() {
     };
 }
 
+let color = random_rgba();
+
 function random_rgba() {
     const o = Math.round, r = Math.random, s = 255;
     return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
 }
 
-const color = random_rgba();
+let oneColor = false;
+
+function ChooseOneColor() {
+    oneColor = true;
+}
 
 gridSize = 16;
 makeRows(gridSize, gridSize);
