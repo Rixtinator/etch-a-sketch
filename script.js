@@ -62,13 +62,15 @@ function ChooseMultColor() {
 
 function setGrid() {
     gridSize = Number(window.prompt("How many pixels do you want?", "A number between 1 and 100"));
-    if (gridSize > 100) {
+    if (gridSize === 0) {
+        return;
+    }
+    else if (gridSize > 100) {
         alert("Choose again, please choose a number below 100.");
         gridSize = Number(window.prompt("How many pixels do you want?", "A number between 1 and 100"));
     }
 
     else {
-        console.log(gridSize);
         makeRows(gridSize, gridSize);
         rmvColor();
     }
