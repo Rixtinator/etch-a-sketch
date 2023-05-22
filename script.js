@@ -29,4 +29,21 @@ function makeRows(rows, cols) {
     };
 };
 
-makeRows(16, 16);
+
+gridSize = 16;
+
+function setGrid() {
+    gridSize = Number(window.prompt("How many pixels do you want?", "choose number between 1 and 100"));
+    if (gridSize > 100) {
+        alert("choose again, please choose a number below 100");
+    }
+
+    else {
+        console.log(gridSize);
+    }
+};
+
+makeRows(gridSize, gridSize);
+
+
+
